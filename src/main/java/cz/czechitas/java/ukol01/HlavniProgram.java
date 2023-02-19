@@ -9,7 +9,14 @@ public class HlavniProgram {
     public void start() {
         Turtle zofka = new Turtle();
 
-        zofka.penUp();
+        double strana_ctverce = 80;
+        double delsi_strana = 100;
+        double predpona = strana_ctverce;
+        double odvesna = sqrt(strana_ctverce * strana_ctverce / 2);
+        double nozicka = strana_ctverce / 3;
+        double mezera = strana_ctverce + 50;
+
+        /*zofka.penUp();
         zofka.turnLeft(90);
         zofka.move(300);
         zofka.turnRight(90);
@@ -22,12 +29,56 @@ public class HlavniProgram {
         mezera(zofka);
         nakresliKolecko(zofka);
         mezera(zofka);
+        nakresliSlunicko(zofka);*/
+
+        zofka.penUp();
+        zofka.move(200);
+        zofka.turnLeft(90);
+        zofka.move(100);
+        zofka.penDown();
         nakresliSlunicko(zofka);
+        zofka.penUp();
+        zofka.turnLeft(90);
+        zofka.move(150);
+        zofka.turnRight(90);
+        zofka.move(120);
+        zofka.turnRight(90);
+        zofka.penDown();
+        for (int i = 0; i < 5; i++) {
+            nakresliTrojuhelnik(zofka, predpona, odvesna);
+            nakresliTelo(zofka, strana_ctverce, delsi_strana);
+            ulice(zofka, mezera);
+        }
+        zofka.penUp();
+        zofka.turnRight(180);
+        zofka.move(2 * delsi_strana);
+        zofka.turnRight(90);
+        zofka.move(mezera);
+        zofka.turnRight(90);
+        zofka.penDown();
+        nakresliTrojuhelnik(zofka, predpona, odvesna);
+        nakresliTelo(zofka, strana_ctverce, delsi_strana);
+        zofka.penUp();
+        zofka.turnLeft(90);
+        zofka.move(250);
+        zofka.turnLeft(90);
+        zofka.move(delsi_strana);
+        zofka.turnRight(180);
+        zofka.penDown();
+        nakresliPrasatko(zofka);
+        zofka.penUp();
+        zofka.turnLeft(60);
+        zofka.move(370);
+        zofka.turnRight(90);
+        zofka.move(delsi_strana);
+        zofka.penDown();
+        nakresliTrojuhelnik(zofka, predpona, odvesna);
+        nakresliTelo(zofka, strana_ctverce, delsi_strana);
     }
 
     private void nakresliPrasatko(Turtle zofka) {
-        double strana_ctverce = 100;
-        double delsi_strana = 150;
+        double strana_ctverce = 80;
+        double delsi_strana = 100;
         double predpona = strana_ctverce;
         double odvesna = sqrt(strana_ctverce * strana_ctverce / 2);
         double nozicka = strana_ctverce / 3;
@@ -99,17 +150,25 @@ public class HlavniProgram {
         }
     }
 
-    private void nakresliSlunicko(Turtle zofka){
+    private void nakresliSlunicko(Turtle zofka) {
         for (int n = 0; n < 12; n++) {
-            zofka.move(30);
+            zofka.move(15);
             zofka.turnLeft(30);
             zofka.turnRight(110);
-            zofka.move(25);
+            zofka.move(15);
             zofka.turnLeft(180);
-            zofka.move(25);
+            zofka.move(15);
             zofka.turnRight(70);
 
         }
+    }
+
+    private void ulice(Turtle zofka, double mezera) {
+        zofka.penUp();
+        zofka.turnRight(90);
+        zofka.move(mezera);
+        zofka.turnLeft(90);
+        zofka.penDown();
     }
 
     public static void main(String[] args) {
